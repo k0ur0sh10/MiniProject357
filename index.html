@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>HealthCompanion — SOEN 357 Mini Project Report</title>
+    <meta name="description" content="A modern, blog-style UX report website for HealthCompanion (SOEN 357).">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <!-- Top bar -->
+    <header class="topbar">
+        <div class="container topbar__inner">
+            <div class="brand">
+                <div class="brand__mark" aria-hidden="true">HC</div>
+                <div class="brand__text">
+                    <div class="brand__title">HealthCompanion</div>
+                    <div class="brand__sub">SOEN 357 • Mini Project Report</div>
+                </div>
+            </div>
+
+            <div class="topbar__actions">
+                <button class="btn btn--ghost" id="toggleTheme" type="button" aria-pressed="false"
+                    aria-label="Toggle dark mode">
+                    <span class="icon" aria-hidden="true">◐</span>
+                    <span class="btn__label">Theme</span>
+                </button>
+
+                <button class="btn btn--primary" id="pdfBtn" type="button" aria-label="Download PDF report">
+                    <span class="icon" aria-hidden="true">↓</span>
+                    <span class="btn__label">PDF Report</span>
+                </button>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container hero__grid">
+            <div class="hero__copy">
+                <p class="pill">UX Strategy • Mobile + Web • Healthcare</p>
+                <h1>Designing a calm, simple Healthcare companion for adults managing chronic conditions.
+                </h1>
+                <p class="lead">
+                    This report presents the UX/UI design process for <strong>HealthCompanion</strong>: user research,
+                    personas,
+                    journey mapping, design decisions, and usability testing—focused on clarity, simplicity, and
+                    inclusivity.
+                </p>
+
+                <div class="hero__meta">
+                    <div class="metaCard">
+                        <div class="metaCard__k">Name</div>
+                        <div class="metaCard__v">Kourosh Fadaei Naeini</div>
+                    </div>
+
+                    <div class="metaCard">
+                        <div class="metaCard__k">Student ID</div>
+                        <div class="metaCard__v">40289423</div>
+                    </div>
+
+                    <div class="metaCard">
+                        <div class="metaCard__k">Prototype</div>
+                        <div class="metaCard__v">
+                            <a href="https://www.figma.com/make/DZw2sJID1dDeUP1vmCme52/Health-Companion-App-Design?t=7FiyME0M0xURSkWh-1"
+                                target="_blank" rel="noreferrer">
+                                Open Figma prototype →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main layout -->
+    <main class="container layout" id="content">
+
+        <!-- ✅ Responsive TOC: collapsible on mobile without JS -->
+        <details class="toc card" aria-label="Table of contents" open>
+            <summary class="toc__summary">
+                <div class="toc__summaryLeft">
+                    <div class="toc__title">Contents</div>
+                    <div class="toc__hint">Tap to expand/collapse</div>
+                </div>
+                <span class="toc__chev" aria-hidden="true">▾</span>
+            </summary>
+
+            <nav class="toc__nav">
+                <a href="#abstract">Abstract</a>
+                <a href="#overview">1. Project Overview</a>
+                <a href="#target">2. Target Users & Platform Strategy</a>
+                <a href="#research">3. User Research</a>
+                <a href="#personas">4. Personas</a>
+                <a href="#journeys">5. User Journey Mapping</a>
+                <a href="#ui">6. UI Design Decisions & Justification</a>
+                <a href="#design">7. Sketches, Wireframes & Design</a>
+                <a href="#flow">8. User Flow</a>
+                <a href="#storyboards">9. Storyboards</a>
+                <a href="#prototype">10. Design & Prototype</a>
+                <a href="#testing">11. Usability Testing</a>
+                <a href="#iteration">12. Feedback & Iteration</a>
+                <a href="#reflection">13. Reflection</a>
+            </nav>
+        </details>
+
+        <article class="content">
+            <!-- ABSTRACT -->
+            <section id="abstract" class="section card">
+                <header class="section__header">
+                    <h2>Abstract</h2>
+                    <p class="section__subtitle">What the project is, in one snapshot.</p>
+                </header>
+                <p>
+                    This project presents <strong>HealthCompanion</strong>, a mobile app designed to help adult patients
+                    manage
+                    medications and communicate with healthcare professionals. The design process included user
+                    research, personas,
+                    journey mapping, and usability testing to ensure clarity, simplicity, and inclusivity.
+                </p>
+            </section>
+
+            <!-- 1. Project Overview -->
+            <section id="overview" class="section card">
+                <header class="section__header">
+                    <h2>1. Project Overview</h2>
+                    <p class="section__subtitle">Problem context, goals, and core features.</p>
+                </header>
+
+                <p>
+                    The goal was to design a UX strategy for a startup app that helps individuals with chronic health
+                    conditions
+                    manage medications, doctor appointments, and communication with healthcare professionals. The
+                    objective was not
+                    to build a real product, but to demonstrate the full UX/UI process and produce a visual prototype.
+                </p>
+
+                <div class="callout">
+                    <h3>Core features</h3>
+                    <ul>
+                        <li>Medication reminders</li>
+                        <li>Medication tracking (adherence)</li>
+                        <li>Appointment scheduling and tracking</li>
+                        <li>Messaging healthcare professionals</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 2. Target Users & Platform Strategy -->
+            <section id="target" class="section card">
+                <header class="section__header">
+                    <h2>2. Target Users & Platform Strategy</h2>
+                    <p class="section__subtitle">Who it’s for, and why mobile + web.</p>
+                </header>
+
+                <h3>2.1 Target user group</h3>
+                <p>
+                    The design targets adults aged <strong>30–55</strong> managing ongoing conditions (e.g., diabetes,
+                    high blood pressure,
+                    asthma, heart-related issues). This group often has busy schedules (work + sometimes family
+                    responsibilities),
+                    which increases the chance of missed medications or appointments.
+                </p>
+                <p>
+                    The focus is not primarily elderly users (because tech barriers would change the design focus),
+                    and not primarily young adults (18–25) since chronic management tends to be more common with age.
+                </p>
+
+                <h3>2.2 Cross-platform (Mobile + Web)</h3>
+                <div class="twoCol">
+                    <div class="miniCard">
+                        <h4>Mobile</h4>
+                        <p>Daily actions: reminders, quick appointment checks, notifications, messaging.</p>
+                    </div>
+                    <div class="miniCard">
+                        <h4>Web</h4>
+                        <p>Larger views: health history, managing multiple appointments, editing detailed info.</p>
+                    </div>
+                </div>
+
+                <p class="small">
+                    Design goal: consistency across platforms (palette, navigation patterns, readable typography) so
+                    users don’t feel lost.
+                </p>
+            </section>
+
+            <!-- 3. User Research -->
+            <section id="research" class="section card">
+                <header class="section__header">
+                    <h2>3. User Research</h2>
+                    <p class="section__subtitle">Methods, participants, findings, and figures.</p>
+                </header>
+
+                <h3>3.1 Research approach</h3>
+                <p>
+                    Primary research used three methods: a short survey (Google Form), informal discussions in
+                    pharmacies and in a hospital setting,
+                    and in-depth interviews with three adults managing chronic conditions. The goal was to combine
+                    quantitative feedback (survey)
+                    with qualitative insights (interviews).
+                </p>
+
+                <h3>3.2 Survey method (Pharmacies + Hospital)</h3>
+                <ul>
+                    <li>Google Form + QR code</li>
+                    <li>Approached adults in local pharmacies for anonymous responses</li>
+                    <li>Visited a hospital and asked healthcare professionals (nurses/pharmacy staff) for quick feedback
+                    </li>
+                </ul>
+
+                <div class="callout">
+                    <h4>Participation</h4>
+                    <ul>
+                        <li><strong>18</strong> adults completed the survey</li>
+                        <li><strong>4</strong> healthcare professionals shared informal feedback</li>
+                    </ul>
+                </div>
+
+                <h3>3.3 In-depth interviews</h3>
+                <p>
+                    Three semi-structured interviews (30–45 minutes) with adults managing: Type 2 Diabetes, high blood
+                    pressure, and hyperlipidemia.
+                    Topics: routines, remembering medication, appointment scheduling, stress/confusion sources.
+                </p>
+
+                <h3>3.4 Key findings</h3>
+                <div class="gridCards">
+                    <div class="miniCard">
+                        <h4>Forgetting medication is common</h4>
+                        <p>Often happens when schedules change, traveling, or when stressed/busy → supports strong
+                            reminders + quick confirmation.</p>
+                    </div>
+                    <div class="miniCard">
+                        <h4>Appointments are hard to track</h4>
+                        <p>People forget dates/times or rely on paper/SMS → supports clear calendar, confirmations, and
+                            automatic reminders.</p>
+                    </div>
+                    <div class="miniCard">
+                        <h4>Health management feels overwhelming</h4>
+                        <p>Stress about missed doses or unclear plans → supports calm UI, low clutter, step-by-step
+                            flows.</p>
+                    </div>
+                    <div class="miniCard">
+                        <h4>Trust and privacy matter</h4>
+                        <p>Patients worry about privacy → app must explain data usage and access clearly.</p>
+                    </div>
+                    <div class="miniCard">
+                        <h4>Simplicity is key</h4>
+                        <p>Preference for simple dashboards, readable text, minimal steps → supports low cognitive load
+                            design.</p>
+                    </div>
+                </div>
+
+                <h3>3.5 Research figures (Gallery)</h3>
+                <div class="gallery">
+                    <figure class="gallery__item" data-modal="true">
+                        <img src="assets/fig1.png" alt="Figure 1: Frequency of forgetting medication (survey summary)"
+                            onerror="this.style.display='none'">
+                    </figure>
+
+                    <figure class="gallery__item" data-modal="true">
+                        <img src="assets/fig2.png" alt="Figure 2: Reported challenges in managing chronic conditions"
+                            onerror="this.style.display='none'">
+                    </figure>
+
+                    <figure class="gallery__item" data-modal="true">
+                        <img src="assets/fig3.png" alt="Figure 3: Most requested app features"
+                            onerror="this.style.display='none'">
+                    </figure>
+                </div>
+            </section>
+
+            <!-- 4. Personas -->
+            <section id="personas" class="section card">
+                <header class="section__header">
+                    <h2>4. Personas</h2>
+                    <p class="section__subtitle">Three user archetypes guiding the UX.</p>
+                </header>
+
+                <p>
+                    Personas represent typical users: two patients (different lifestyles/tech comfort) and one
+                    healthcare professional.
+                </p>
+
+                <div class="personas">
+                    <article class="persona">
+                        <figure class="persona__media" data-modal="true">
+                            <img src="assets/persona-david.png" alt="Persona: David Martinez (Patient)"
+                                onerror="this.style.display='none'">
+                        </figure>
+                        <div class="persona__body">
+                            <h3>4.1 David Martinez — Patient (Single, busy professional)</h3>
+                            <p>
+                                David uses apps daily but wants something simple. The design focus is speed, simple
+                                reminders, and minimal steps.
+                            </p>
+                            <ul class="tags">
+                                <li>Fast confirmations</li>
+                                <li>Low friction</li>
+                                <li>Minimal clicks</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="persona">
+                        <figure class="persona__media" data-modal="true">
+                            <img src="assets/persona-sarah.png" alt="Persona: Sarah Ahmed (Healthcare Professional)"
+                                onerror="this.style.display='none'">
+                        </figure>
+                        <div class="persona__body">
+                            <h3>4.2 Sarah Ahmed — Healthcare Professional</h3>
+                            <p>
+                                Sarah needs fast access to adherence and patient info. The professional dashboard
+                                supports efficiency and quick actions.
+                            </p>
+                            <ul class="tags">
+                                <li>Clarity</li>
+                                <li>Adherence overview</li>
+                                <li>Quick messaging</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="persona">
+                        <figure class="persona__media" data-modal="true">
+                            <img src="assets/persona-maria.png" alt="Persona: Maria Lopez (Patient)"
+                                onerror="this.style.display='none'">
+                        </figure>
+                        <div class="persona__body">
+                            <h3>4.3 Maria Lopez — Patient (Parent, moderate tech comfort)</h3>
+                            <p>
+                                Maria is comfortable with a phone but doesn’t want a technical app. The design focus is
+                                readability, clear history, calm screens.
+                            </p>
+                            <ul class="tags">
+                                <li>Readability</li>
+                                <li>Simple history</li>
+                                <li>Calm UI</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 5. User Journey Mapping -->
+            <section id="journeys" class="section card">
+                <header class="section__header">
+                    <h2>5. User Journey Mapping</h2>
+                    <p class="section__subtitle">Maria + Sarah journeys translating needs into UI.</p>
+                </header>
+
+                <h3>5.1 Maria — Medication Reminder & Confirmation (Patient)</h3>
+
+                <div class="mediaRow">
+                    <figure class="media card" data-modal="true">
+                        <img src="assets/journey-maria.png" alt="Maria journey diagram"
+                            onerror="this.style.display='none'">
+                    </figure>
+
+                    <div class="callout">
+                        <h4>Design opportunities</h4>
+                        <ul>
+                            <li>Clear reminder text</li>
+                            <li>One-tap confirmation (“Mark as Taken”)</li>
+                            <li>Calm success feedback (green check)</li>
+                            <li>Simple medication history without clutter</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4>Table 1 — Maria Lopez’s User Journey Table</h4>
+                <div class="reportTableWrap">
+                    <table class="reportTable" aria-label="Maria Lopez user journey table">
+                        <thead>
+                            <tr>
+                                <th>Stage</th>
+                                <th>Touchpoint</th>
+                                <th>User Action</th>
+                                <th>Thoughts</th>
+                                <th>Emotion</th>
+                                <th>Pain Point / Design Opportunity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="Stage"><strong>Reminder</strong></td>
+                                <td data-label="Touchpoint">Push notification</td>
+                                <td data-label="User Action">Sees medication reminder</td>
+                                <td data-label="Thoughts">“Good, I needed that”</td>
+                                <td data-label="Emotion">Reassured</td>
+                                <td data-label="Pain Point / Design Opportunity">Notification text must be clear</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Stage"><strong>Open app</strong></td>
+                                <td data-label="Touchpoint">Medication reminder screen</td>
+                                <td data-label="User Action">Taps notification</td>
+                                <td data-label="Thoughts">“Let me confirm quickly”</td>
+                                <td data-label="Emotion">Focused</td>
+                                <td data-label="Pain Point / Design Opportunity">One-tap confirmation</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Stage"><strong>Confirm</strong></td>
+                                <td data-label="Touchpoint">Mark as Taken</td>
+                                <td data-label="User Action">Marks as taken</td>
+                                <td data-label="Thoughts">“Done”</td>
+                                <td data-label="Emotion">Relief</td>
+                                <td data-label="Pain Point / Design Opportunity">Clear success feedback (green check)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-label="Stage"><strong>History</strong></td>
+                                <td data-label="Touchpoint">Medication history list</td>
+                                <td data-label="User Action">Sees taken record</td>
+                                <td data-label="Thoughts">“Ok I didn’t forget”</td>
+                                <td data-label="Emotion">Confidence</td>
+                                <td data-label="Pain Point / Design Opportunity">Show simple history without clutter
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <hr class="divider">
+
+                <h3>5.2 Sarah — Managing Patients (Healthcare Professional)</h3>
+
+                <div class="mediaRow">
+                    <figure class="media card" data-modal="true">
+                        <img src="assets/journey-sarah.png" alt="Sarah journey diagram"
+                            onerror="this.style.display='none'">
+                    </figure>
+
+                    <div class="callout">
+                        <h4>Design priorities</h4>
+                        <ul>
+                            <li>Speed + minimal clicks</li>
+                            <li>Clear adherence overview</li>
+                            <li>Easy identification of missed doses</li>
+                            <li>Quick templates / fast messaging</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4>Table 2 — Sarah Ahmad’s User Journey Table</h4>
+                <div class="reportTableWrap">
+                    <table class="reportTable" aria-label="Sarah Ahmad user journey table">
+                        <thead>
+                            <tr>
+                                <th>Stage</th>
+                                <th>Touchpoint</th>
+                                <th>User Action</th>
+                                <th>Thoughts</th>
+                                <th>Emotion</th>
+                                <th>Pain Point / Design Opportunity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="Stage"><strong>Morning Login</strong></td>
+                                <td data-label="Touchpoint">Professional Portal – Sign In</td>
+                                <td data-label="User Action">Opens app, enters email &amp; password, logs in</td>
+                                <td data-label="Thoughts">I need quick access to my patients.</td>
+                                <td data-label="Emotion">Focused</td>
+                                <td data-label="Pain Point / Design Opportunity">Enable biometric login to reduce
+                                    friction and save time.</td>
+                            </tr>
+
+                            <tr>
+                                <td data-label="Stage"><strong>Check Dashboard</strong></td>
+                                <td data-label="Touchpoint">Professional Dashboard – Home</td>
+                                <td data-label="User Action">Views urgent alerts, checks ‘Needs Attention’, opens
+                                    Patient List</td>
+                                <td data-label="Thoughts">Who needs my attention first?</td>
+                                <td data-label="Emotion">Alert but confident</td>
+                                <td data-label="Pain Point / Design Opportunity">Highlight critical alerts clearly with
+                                    badges and priority colors.</td>
+                            </tr>
+
+                            <tr>
+                                <td data-label="Stage"><strong>Review Patient Adherence</strong></td>
+                                <td data-label="Touchpoint">Patient Analytics Page</td>
+                                <td data-label="User Action">Searches patient, opens adherence calendar, reviews stats
+                                </td>
+                                <td data-label="Thoughts">Is this patient following their medication schedule?</td>
+                                <td data-label="Emotion">Analytical</td>
+                                <td data-label="Pain Point / Design Opportunity">Use clear color-coded calendar (Green =
+                                    Taken, Yellow = Late, Red = Missed).</td>
+                            </tr>
+
+                            <tr>
+                                <td data-label="Stage"><strong>Identify Issues</strong></td>
+                                <td data-label="Touchpoint">Medication Adherence Dashboard</td>
+                                <td data-label="User Action">Identifies missed doses and low adherence percentage</td>
+                                <td data-label="Thoughts">This patient may be at risk.</td>
+                                <td data-label="Emotion">Concerned</td>
+                                <td data-label="Pain Point / Design Opportunity">Automatically flag low adherence with
+                                    visible warnings.</td>
+                            </tr>
+
+                            <tr>
+                                <td data-label="Stage"><strong>Send Message</strong></td>
+                                <td data-label="Touchpoint">Messages – Patient Conversation</td>
+                                <td data-label="User Action">Opens chat, sends reminder or answers patient questions
+                                </td>
+                                <td data-label="Thoughts">Let me follow up quickly without making a phone call.</td>
+                                <td data-label="Emotion">In control</td>
+                                <td data-label="Pain Point / Design Opportunity">Provide quick-reply templates to
+                                    minimize typing and clicks.</td>
+                            </tr>
+
+                            <tr>
+                                <td data-label="Stage"><strong>Follow-up &amp; Monitor</strong></td>
+                                <td data-label="Touchpoint">Analytics + Dashboard Overview</td>
+                                <td data-label="User Action">Rechecks adherence stats and dashboard updates</td>
+                                <td data-label="Thoughts">Did the patient improve after my message?</td>
+                                <td data-label="Emotion">Reassured if improved</td>
+                                <td data-label="Pain Point / Design Opportunity">Show trend graphs and improvement
+                                    indicators for fast evaluation.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 6. UI Design Decisions -->
+            <section id="ui" class="section card">
+                <header class="section__header">
+                    <h2>6. UI Design Decisions & Justification</h2>
+                    <p class="section__subtitle">Calm healthcare aesthetic + accessibility-first choices.</p>
+                </header>
+
+                <h3>6.1 Color palette</h3>
+                <p>
+                    A minimalist medical palette: soft navy blue as the primary color and light green for confirmations.
+                    Blue supports trust/calm; green is reserved for positive confirmation states so it doesn’t
+                    overwhelm.
+                    White and light grey keep the UI clean and easy to scan.
+                </p>
+
+                <figure class="media card" data-modal="true">
+                    <img src="assets/palette.png" alt="color palette" onerror="this.style.display='none'">
+                </figure>
+
+                <h3>6.2 Typography</h3>
+                <p>
+                    Clean sans-serif fonts (Inter/Roboto/Open Sans) support readability on mobile + web. Comfortable
+                    body sizes (~16px)
+                    and spacing reduce frustration for adults 30–55.
+                </p>
+                <ul>
+                    <li><strong>Readability:</strong> clear text, high contrast, spacing</li>
+                    <li><strong>Learnability:</strong> consistent labels and section titles</li>
+                    <li><strong>Memorability:</strong> consistent typography patterns across screens</li>
+                </ul>
+
+                <h3>6.3 UI components (Buttons & feedback)</h3>
+                <p>
+                    Large tap targets and clear labels (e.g., “Mark as Taken”) reduce user errors. Success feedback
+                    (green checkmark)
+                    confirms completed actions.
+                </p>
+                <figure class="gallery__item" data-modal="true">
+                    <img src="assets/button.png" alt="Button" onerror="this.style.display='none'">
+                </figure>
+                <figure class="gallery__item" data-modal="true">
+                    <img src="assets/success.png" alt="Success" onerror="this.style.display='none'">
+                </figure>
+
+                <h3>6.4 Inclusivity & accessibility</h3>
+                <div class="gridCards">
+                    <div class="miniCard">
+                        <h4>Adjustable font size</h4>
+                        <p>Support readability preferences and comfort.</p>
+                    </div>
+                    <div class="miniCard">
+                        <h4>High contrast mode</h4>
+                        <p>Better visibility for varied visual needs.</p>
+                    </div>
+                    <div class="miniCard">
+                        <h4>Voice messaging</h4>
+                        <p>Helpful for motor/vision accessibility and convenience.</p>
+                    </div>
+                    <div class="miniCard">
+                        <h4>Multi-language support</h4>
+                        <p>Language selection + message translation.</p>
+                    </div>
+                    <div class="miniCard">
+                        <h4>ADHD-friendly layout</h4>
+                        <p>Minimal clutter, limited bright colors, clear hierarchy.</p>
+                    </div>
+                    <div class="miniCard">
+                        <h4>Accessibility basics</h4>
+                        <p>Large tap targets, clear errors, screen-reader friendly structure.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. Sketches, Wireframes & Design -->
+            <section id="design" class="section card">
+                <header class="section__header">
+                    <h2>7. Sketches, Wireframes & Design (Figma)</h2>
+                    <p class="section__subtitle">From rough sketches to structured wireframes.</p>
+                </header>
+
+                <h3>7.1 Key Screens Sketches</h3>
+                <div class="gallery">
+                    <figure class="gallery__item" data-modal="true">
+                        <img src="assets/sketch-01.png" alt="Sketch 1" onerror="this.style.display='none'">
+                    </figure>
+                    <figure class="gallery__item" data-modal="true">
+                        <img src="assets/sketch-02.png" alt="Sketch 2" onerror="this.style.display='none'">
+                    </figure>
+                    <figure class="gallery__item" data-modal="true">
+                        <img src="assets/sketch-03.png" alt="Sketch 3" onerror="this.style.display='none'">
+                    </figure>
+                    <figure class="gallery__item" data-modal="true">
+                        <img src="assets/sketch-04.png" alt="Sketch 4" onerror="this.style.display='none'">
+                    </figure>
+                    <figure class="gallery__item" data-modal="true">
+                        <img src="assets/sketch-05.png" alt="Sketch 5" onerror="this.style.display='none'">
+                    </figure>
+                </div>
+
+                <h3>7.2 Key Screens Wireframes</h3>
+                <div class="gallery">
+                    <figure class="gallery__item" data-modal="true">
+                        <img src="assets/wireframe-01.png" alt="Wireframe 1" onerror="this.style.display='none'">
+                    </figure>
+                    <figure class="gallery__item" data-modal="true">
+                        <img src="assets/wireframe-02.png" alt="Wireframe 2" onerror="this.style.display='none'">
+                    </figure>
+                    <figure class="gallery__item" data-modal="true">
+                        <img src="assets/wireframe-03.png" alt="Wireframe 3" onerror="this.style.display='none'">
+                    </figure>
+                </div>
+            </section>
+
+            <!-- 8. User Flow -->
+            <section id="flow" class="section card">
+                <header class="section__header">
+                    <h2>8. User Flow (Patient & Healthcare Professional)</h2>
+                    <p class="section__subtitle">A complete flow from role selection to key tasks.</p>
+                </header>
+
+                <figure class="media card" data-modal="true">
+                    <img src="assets/user-flow.png" alt="User flow diagram" onerror="this.style.display='none'">
+                </figure>
+            </section>
+
+            <!-- 9. Storyboards -->
+            <section id="storyboards" class="section card">
+                <header class="section__header">
+                    <h2>9. Storyboards</h2>
+                    <p class="section__subtitle">Two storyboards: one per role, each performing a key task.</p>
+                </header>
+
+                <div class="twoCol">
+                    <figure class="media card" data-modal="true">
+                        <img src="assets/storyboard-david.png" alt="David storyboard: medication reminder"
+                            onerror="this.style.display='none'">
+                    </figure>
+
+                    <figure class="media card" data-modal="true">
+                        <img src="assets/storyboard-sarah.png" alt="Sarah storyboard: messaging feature"
+                            onerror="this.style.display='none'">
+                    </figure>
+                </div>
+            </section>
+
+            <!-- 10. Design & Prototype -->
+            <section id="prototype" class="section card">
+                <header class="section__header">
+                    <h2>10. Design & Prototype</h2>
+                    <p class="section__subtitle">Final dashboard screens for patients and professionals.</p>
+                </header>
+
+                <h3>10.1 Patient dashboard</h3>
+                <figure class="media card" data-modal="true">
+                    <img src="assets/dashboard-patient.png" alt="Patient dashboard design"
+                        onerror="this.style.display='none'">
+                </figure>
+
+                <h3>10.2 Healthcare professional dashboard</h3>
+                <figure class="media card" data-modal="true">
+                    <img src="assets/dashboard-professional.png" alt="Healthcare professional dashboard design"
+                        onerror="this.style.display='none'">
+                </figure>
+
+                <div class="callout">
+                    <h4>Clickable prototype</h4>
+                    <p>
+                        <a href="https://www.figma.com/make/DZw2sJID1dDeUP1vmCme52/Health-Companion-App-Design?t=7FiyME0M0xURSkWh-1"
+                            target="_blank" rel="noreferrer">
+                            Open the Figma prototype →
+                        </a>
+                    </p>
+                </div>
+            </section>
+
+            <!-- 11. Usability Testing -->
+            <section id="testing" class="section card">
+                <header class="section__header">
+                    <h2>11. Usability Testing</h2>
+                    <p class="section__subtitle">How the prototype was evaluated.</p>
+                </header>
+
+                <h3>11.1 Testing goals</h3>
+                <p>The test checked whether users could complete key tasks without confusion and whether the UI felt
+                    simple and trustworthy.</p>
+                <ul>
+                    <li>Onboarding clarity</li>
+                    <li>Medication confirmation</li>
+                    <li>Appointment booking clarity</li>
+                    <li>Messaging clarity</li>
+                </ul>
+
+                <h3>11.2 Participants</h3>
+                <ul>
+                    <li>2 adults aged 30–50 (non-design background)</li>
+                    <li>1 healthcare professional</li>
+                </ul>
+
+                <h3>11.3 Tasks</h3>
+                <ol>
+                    <li>Create an account and add a medication</li>
+                    <li>Confirm a medication reminder</li>
+                    <li>Book a follow-up appointment</li>
+                    <li>Send a message to the doctor (text)</li>
+                </ol>
+
+                <h3>11.4 Method & data collection</h3>
+                <p>
+                    Testing was done in-person and remotely (screen sharing). Participants were asked to think aloud.
+                    Feedback was collected
+                    via observation, notes, follow-up questions, and where users hesitated.
+                </p>
+                <ul>
+                    <li>Time to complete tasks (rough estimate)</li>
+                    <li>Number of errors/misclicks</li>
+                    <li>Hesitation points</li>
+                    <li>Direct quotes or paraphrased comments</li>
+                </ul>
+
+                <h3>11.5 How feedback was analyzed</h3>
+                <p>
+                    Feedback was grouped into themes (navigation, clarity, visibility, accessibility) and prioritized by
+                    frequency and how much
+                    it blocked task completion.
+                </p>
+            </section>
+
+            <!-- 12. Feedback & Iteration -->
+            <section id="iteration" class="section card">
+                <header class="section__header">
+                    <h2>12. User Feedback Summary & Design Iteration</h2>
+                    <p class="section__subtitle">What worked, what didn’t, and what changed.</p>
+                </header>
+
+                <h3>12.1 Positive feedback</h3>
+                <ul>
+                    <li>Layout felt clean and professional</li>
+                    <li>Medication confirmation button was easy to find</li>
+                    <li>Color scheme felt calming and “medical”</li>
+                    <li>Bottom navigation was familiar and easy</li>
+                </ul>
+
+                <h3>12.2 Confusion / problems found</h3>
+
+                <div class="gridCards">
+                    <div class="miniCard">
+                        <h4>Appointments: calendar vs list confusion</h4>
+                        <p>Fix: set calendar as default + add a clear “Book Appointment” button.</p>
+                    </div>
+                    <div class="miniCard">
+                        <h4>Messaging: voice option not visible enough</h4>
+                        <p>Fix: increase microphone icon size.</p>
+                    </div>
+                    <div class="miniCard">
+                        <h4>Onboarding felt slightly long</h4>
+                        <p>Fix: merge fields and reduce steps while keeping clarity.</p>
+                    </div>
+                    <div class="miniCard">
+                        <h4>Font size preference</h4>
+                        <p>Fix: add font-size adjustment in settings.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 13. Reflection -->
+            <section id="reflection" class="section card">
+                <header class="section__header">
+                    <h2>13. Reflection</h2>
+                    <p class="section__subtitle">What was learned and what would be improved next.</p>
+                </header>
+
+                <p>
+                    This project highlighted that research matters before designing. Initially, it seemed like reminders
+                    were the main issue,
+                    but research showed stress, confusion, and lack of clarity were also major problems.
+                </p>
+                <p>
+                    Personas helped design for different needs: David needed speed and efficiency, Maria needed
+                    simplicity and readability,
+                    and Sarah needed structured information quickly—supporting both a patient dashboard and a
+                    professional dashboard.
+                </p>
+                <p>
+                    Inclusivity also changed the approach: considering visual impairments, ADHD, and language barriers
+                    encouraged reduced clutter,
+                    improved contrast, voice messaging, and multi-language options.
+                </p>
+                <p>
+                    The biggest challenge was balancing features with simplicity. Usability testing showed that small
+                    choices (icon visibility,
+                    default views) can affect the overall experience.
+                </p>
+                <p>
+                    With more time, the next step would be larger usability testing with more diverse users and possibly
+                    A/B testing between
+                    navigation layouts.
+                </p>
+            </section>
+
+            <footer class="footer">
+                <div class="footer__inner">
+                    <div class="footer__note">
+                        N.B. Generative AI was used to support visual design elements and editorial refinement of this
+                        website. The research, analysis, and substantive content presented here and in the accompanying
+                        PDF report are entirely my original work.
+                    </div>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <!-- Image modal -->
+    <div class="modal" id="imgModal" aria-hidden="true" role="dialog" aria-label="Image preview">
+        <div class="modal__backdrop" data-close="true"></div>
+        <div class="modal__panel" role="document">
+            <button class="modal__close" type="button" data-close="true" aria-label="Close preview">✕</button>
+            <img id="modalImg" alt="">
+            <div id="modalCaption" class="modal__caption"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
